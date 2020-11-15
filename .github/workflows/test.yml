@@ -21,15 +21,23 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       # Runs a single command using the runners shell
       - name: Install node
         uses: actions/setup-node@v1
         with:
           node-version: 15.x
+
       - name: Install dependencies
         run: yarn
-      - name: Lint
+
+      - name: Check linting
         run: yarn lint
-      - name: Test
+
+      - name: Check commit message linting
+        uses: wagoid/commitlint-github-action@v1
+
+      - name: Check tests
         run: yarn test
