@@ -7,7 +7,7 @@
   "scripts": {
     "build": "rimraf ./build && tsc",
     "dev": "ts-node-dev --respawn --transpile-only --inspect -- ./src/start/server.ts",
-    "lint": "eslint --fix --ext .js,.ts,.json .",
+    "lint": "eslint --fix --ext .js,.ts .",
     "test": "jest"
   },
   "dependencies": {
