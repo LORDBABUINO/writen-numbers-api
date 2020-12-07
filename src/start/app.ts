@@ -1,5 +1,3 @@
-import 'dotenv/config'
-
 import cors from 'cors'
 import express, { Errback, NextFunction, Request, Response } from 'express'
 
