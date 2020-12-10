@@ -1,4 +1,4 @@
 FROM node:15
 WORKDIR /home/node/app
-COPY pacakge.json yarn.lock ./
+COPY . .
 RUN yarn

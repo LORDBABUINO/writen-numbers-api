@@ -7,10 +7,12 @@ services:
       - ${DB_PORT}:5432
     volumes:
       - ./db:/var/lib/postgresql/data
+    env_file:
+      .env
     environment:
       - POSTGRES_USER:${DB_USER}
       - POSTGRES_DB:${DB_NAME}
-      - POSTGRES_PASSWORD:${DB_PASSWORD}
+      - POSTGRES_PASSWORD:${DB_PASS}
     networks:
       - backend
   node:
@@ -24,6 +26,8 @@ services:
       - postgres
     ports:
       - ${APP_PORT}:3000
+    env_file:
+      .env
     environment:
       - DB_HOST:postgres
       - DB_PORT:${DB_PORT}

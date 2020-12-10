@@ -6,6 +6,7 @@
   "scripts": {
     "build": "rimraf ./build && tsc",
     "dev": "ts-node-dev --respawn --transpile-only --inspect -- ./src/start/server.ts",
+    "migrate": "sequelize-cli db:migrate",
     "lint": "eslint --fix --ext .js,.ts .",
     "test": "jest"
   },
@@ -24,7 +25,9 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -53,6 +56,7 @@
     "nodemon": "^2.0.6",
     "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
+    "sequelize-cli": "^6.2.0",
     "supertest": "^6.0.1",
     "ts-jest": "^26.4.4",
     "ts-node-dev": "^1.0.0",
