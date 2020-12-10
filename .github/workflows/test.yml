@@ -29,7 +29,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Install node
         if: ${{ !env.ACT }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v1
         with:
           node-version: 15.x
 
@@ -77,7 +77,7 @@ jobs:
 
       - name: Install node
         if: ${{ !env.ACT }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v1
         with:
           node-version: 15.x
 
