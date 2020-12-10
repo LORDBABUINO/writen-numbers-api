@@ -99,7 +99,7 @@ jobs:
       - name: Run migrations
         run: yarn migrate
         env:
-          DB_HOST: postgres
+          DB_HOST: localhost
           DB_USER: admin
           DB_PORT: 5432
           DB_PASSWORD: postgres
