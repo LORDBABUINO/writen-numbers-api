@@ -5,10 +5,12 @@
   "license": "MIT",
   "scripts": {
     "build": "rimraf ./build && tsc",
-    "dev": "ts-node-dev --respawn --transpile-only --inspect -- ./src/start/server.ts",
-    "migrate": "sequelize-cli db:migrate",
+    "dev": "ts-node-dev --respawn --transpile-only --inspect --ignore-watch node_modules ./src/start/server.ts",
+    "migrate": "ts-node-dev ./node_modules/typeorm/cli.js migration:run",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "lint": "eslint --fix --ext .js,.ts .",
-    "test": "jest"
+    "test": "jest -c jest.config.unit.ts",
+    "integration": "jest -c jest.config.integration.ts -i"
   },
   "husky": {
     "hooks": {
@@ -27,7 +29,9 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "pg": "^8.5.1",
-    "sequelize": "^6.3.5"
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.29",
+    "uuidv4": "^6.2.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -56,10 +60,9 @@
     "nodemon": "^2.0.6",
     "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
-    "sequelize-cli": "^6.2.0",
     "supertest": "^6.0.1",
     "ts-jest": "^26.4.4",
-    "ts-node-dev": "^1.0.0",
+    "ts-node-dev": "^1.1.1",
     "typescript": "^4.0.5"
   },
   "config": {

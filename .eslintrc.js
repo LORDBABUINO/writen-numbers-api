@@ -27,6 +27,7 @@ module.exports = {
   plugins: ['prettier', 'jest', 'simple-import-sort', '@typescript-eslint'],
   ignorePatterns: 'build',
   rules: {
+    'class-methods-use-this': 'off',
     'prettier/prettier': 'error',
     'simple-import-sort/sort': 'error',
     semi: ['error', 'never'],
@@ -39,5 +40,6 @@ module.exports = {
       'error',
       { args: 'after-used', argsIgnorePattern: '^next$' },
     ],
+    camelcase: ['error', { allow: ['created_at', 'updated_at'] }],
   },
 }

@@ -1,7 +1,9 @@
 version: "3.8"
 services:
   postgres:
-    image: postgres:13.1-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile.postgres
     container_name: postgres_clinica
     ports:
       - ${DB_PORT}:5432
