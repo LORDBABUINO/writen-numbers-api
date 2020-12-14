@@ -61,10 +61,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        #image: postgres:latest
-        build:
-          context: .
-          dockerfile: Dockerfile.postgres
+        image: coreroller/postgres
         env:
           POSTGRES_USER: admin
           POSTGRES_PASSWORD: postgres
