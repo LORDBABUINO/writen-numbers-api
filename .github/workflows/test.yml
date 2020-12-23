@@ -61,7 +61,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: coreroller/postgres
+        image: postgres
         env:
           POSTGRES_USER: admin
           POSTGRES_PASSWORD: postgres
