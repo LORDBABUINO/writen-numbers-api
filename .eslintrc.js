@@ -29,7 +29,7 @@ module.exports = {
   rules: {
     'class-methods-use-this': 'off',
     'prettier/prettier': 'error',
-    'simple-import-sort/sort': 'error',
+    'simple-import-sort/imports': 'error',
     semi: ['error', 'never'],
     'import/extensions': [
       'error',
