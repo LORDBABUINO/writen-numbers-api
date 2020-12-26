@@ -121,3 +121,10 @@ jobs:
           TYPEORM_SYNCHRONIZE: true
           TYPEORM_LOGGING: true
           TYPEORM_ENTITIES: src/app/models/*.ts
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ !env.ACT }}
+    needs: [integration-tests, unit-tests-and-lint]
+    steps:
+      - name: Finish deploy
+        run: echo "Deploy done!"
