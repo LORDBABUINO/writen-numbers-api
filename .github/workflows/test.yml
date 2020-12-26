@@ -123,6 +123,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: [integration-tests, unit-tests-and-lint]
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: Finish deploy
         run: echo "Deploy done!"
