@@ -1,4 +1,9 @@
 FROM node:15-buster-slim
+RUN echo "deb http://ftp.de.debian.org/debian sid main" >> /etc/apt/sources.list \
+  && apt-get update -yq \
+  && apt-get upgrade -yq \
+  && apt autoremove -yq
+
 WORKDIR /home/node/app
 COPY ./package.json ./yarn.* .
 RUN yarn
