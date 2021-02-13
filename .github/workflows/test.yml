@@ -6,7 +6,7 @@ name: CI
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [ master, develop ]
   pull_request:
     branches: [ master ]
 
@@ -59,19 +59,6 @@ jobs:
 
   integration-tests:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_USER: admin
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: db_test
-        ports: ['5432:5432']
-        #options: >-
-        #  --health-cmd pg_isready
-        #  --health-cmd 10s
-        #  --health-timeout 5s
-        #  --health-retries 5
     steps:
       - uses: actions/checkout@v2
 
@@ -95,31 +82,8 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Run migrations
-        run: yarn migrate
-        env:
-          TYPEORM_CONNECTION: postgres
-          TYPEORM_HOST: localhost
-          TYPEORM_USERNAME: admin
-          TYPEORM_PASSWORD: postgres
-          TYPEORM_DATABASE: db_test
-          TYPEORM_PORT: 5432
-          TYPEORM_SYNCHRONIZE: true
-          TYPEORM_LOGGING: true
-          TYPEORM_ENTITIES: src/app/models/*.ts
-
       - name: Check Integration
         run: yarn integration
-        env:
-          TYPEORM_CONNECTION: postgres
-          TYPEORM_HOST: localhost
-          TYPEORM_USERNAME: admin
-          TYPEORM_PASSWORD: postgres
-          TYPEORM_DATABASE: db_test
-          TYPEORM_PORT: 5432
-          TYPEORM_SYNCHRONIZE: true
-          TYPEORM_LOGGING: true
-          TYPEORM_ENTITIES: src/app/models/*.ts
   deploy:
     runs-on: ubuntu-latest
     needs: [integration-tests, unit-tests-and-lint]

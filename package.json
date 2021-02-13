@@ -6,8 +6,6 @@
   "scripts": {
     "build": "rimraf ./build && tsc",
     "dev": "ts-node-dev --respawn --transpile-only --inspect --ignore-watch node_modules ./src/start/server.ts",
-    "migrate": "ts-node-dev ./node_modules/typeorm/cli.js migration:run",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "lint": "eslint --fix --ext .js,.ts .",
     "test": "jest -c jest.config.unit.ts",
     "integration": "jest -c jest.config.integration.ts -i"
@@ -27,11 +25,7 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "pg": "^8.5.1",
-    "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.2.29",
-    "uuidv4": "^6.2.6"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
