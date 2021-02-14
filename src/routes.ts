@@ -1,13 +1,13 @@
 import { Router } from 'express'
 
+import WriterController from './app/controllers/WriterController'
+
 const router = Router()
 
 router.get('/', (_, res) => {
   res.json({ message: 'Hello world!' })
 })
 
-router.get('/0', (_, res) => {
-  res.json({ extenso: 'zero' })
-})
+router.get('/:number', WriterController.index)
 
 export default router
