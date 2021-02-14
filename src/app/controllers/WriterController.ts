@@ -3,8 +3,10 @@ import { Request, Response } from 'express'
 import WriterService from '../services/WriterService'
 
 class WriterController {
-  async index(_: Request, res: Response) {
-    return res.json({ extenso: WriterService.translate() })
+  async index(req: Request, res: Response) {
+    return res.json({
+      extenso: WriterService.translate(Number(req.params.number)),
+    })
   }
 }
 

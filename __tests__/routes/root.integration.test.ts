@@ -22,4 +22,14 @@ describe('GET /', () => {
         expect(res.body).toHaveProperty('extenso', 'zero')
       })
   })
+
+  it('should write number 1', async () => {
+    return request(app)
+      .get('/1')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .then((res: Response) => {
+        expect(res.body).toHaveProperty('extenso', 'um')
+      })
+  })
 })

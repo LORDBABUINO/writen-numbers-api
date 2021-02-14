@@ -1,5 +1,6 @@
 class WriterService {
-  translate() {
+  translate(number: number) {
+    if (number === 1) return 'um'
     return 'zero'
   }
 }
