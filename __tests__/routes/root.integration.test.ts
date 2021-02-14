@@ -12,4 +12,14 @@ describe('GET /', () => {
         expect(res.body).toHaveProperty('message', 'Hello world!')
       })
   })
+
+  it('should write number 0', async () => {
+    return request(app)
+      .get('/0')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .then((res: Response) => {
+        expect(res.body).toHaveProperty('extenso', 'zero')
+      })
+  })
 })
