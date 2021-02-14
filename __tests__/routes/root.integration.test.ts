@@ -13,23 +13,24 @@ describe('GET /', () => {
       })
   })
 
-  it('should write number 0', async () => {
-    return request(app)
-      .get('/0')
-      .expect('Content-Type', /json/)
-      .expect(200)
-      .then((res: Response) => {
-        expect(res.body).toHaveProperty('extenso', 'zero')
-      })
+  interface Dictionary {
+    [number: string]: string
+  }
+
+  const getDictionary = (): Dictionary => ({
+    0: 'zero',
+    1: 'um',
   })
 
-  it('should write number 1', async () => {
-    return request(app)
-      .get('/1')
-      .expect('Content-Type', /json/)
-      .expect(200)
-      .then((res: Response) => {
-        expect(res.body).toHaveProperty('extenso', 'um')
-      })
+  Object.keys(getDictionary()).forEach((key) => {
+    it(`should write number ${key}`, async () => {
+      return request(app)
+        .get(`/${key}`)
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .then((res: Response) => {
+          expect(res.body).toHaveProperty('extenso', getDictionary()[key])
+        })
+    })
   })
 })
