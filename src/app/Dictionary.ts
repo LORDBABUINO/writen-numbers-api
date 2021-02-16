@@ -1,4 +1,4 @@
-interface Dictionary {
+export interface Dictionary {
   [number: string]: string
 }
 
