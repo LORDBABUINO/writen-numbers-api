@@ -41,6 +41,8 @@ const testCaseList: TestCaseList = {
   800: 'oitocentos',
   900: 'novecentos',
   1000: 'mil',
+  '-17': 'dezessete negativo',
+  '-30': 'trinta negativo',
 }
 
 export default testCaseList
