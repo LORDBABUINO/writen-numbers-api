@@ -16,6 +16,8 @@ class WriterService {
     closestNumber: number
   ): string {
     return `${
+      number >= 2000 ? `${this.translate(Math.floor(number / 1000))} ` : ''
+    }${
       closestNumber === 100 ? 'cento' : this.translate(closestNumber)
     } e ${this.translate(number % closestNumber)}`
   }

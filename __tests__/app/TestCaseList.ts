@@ -50,6 +50,7 @@ const testCaseList: TestCaseList = {
   1233: 'mil e duzentos e trinta e três',
   1500: 'mil e quinhentos',
   111: 'cento e onze',
+  94587: 'noventa e quatro mil e quinhentos e oitenta e sete',
 }
 
 export default testCaseList
