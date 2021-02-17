@@ -41,12 +41,12 @@ const testCaseList: TestCaseList = {
   800: 'oitocentos',
   900: 'novecentos',
   1000: 'mil',
-  '-17': 'dezessete negativo',
-  '-30': 'trinta negativo',
+  '-17': 'menos dezessete',
+  '-30': 'menos trinta',
   24: 'vinte e quatro',
   888: 'oitocentos e oitenta e oito',
   999: 'novecentos e noventa e nove',
-  '-999': 'novecentos e noventa e nove negativo',
+  '-999': 'menos novecentos e noventa e nove',
 }
 
 export default testCaseList
