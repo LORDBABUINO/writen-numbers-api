@@ -28,6 +28,39 @@ describe('GET /', () => {
       })
   })
 
+  it("should throw 'out of range' error on huge numbers", async () => {
+    return request(app)
+      .get('/1000000')
+      .expect('Content-Type', /json/)
+      .expect(400)
+      .then((res: Response) => {
+        expect(res.body).toHaveProperty('message', 'number out of range')
+      })
+  })
+
+  it("should throw 'out of range' error on small numbers", async () => {
+    return request(app)
+      .get('/-1000000')
+      .expect('Content-Type', /json/)
+      .expect(400)
+      .then((res: Response) => {
+        expect(res.body).toHaveProperty('message', 'number out of range')
+      })
+  })
+
+  it('should throw error on not integer numbers', async () => {
+    return request(app)
+      .get('/12.4')
+      .expect('Content-Type', /json/)
+      .expect(400)
+      .then((res: Response) => {
+        expect(res.body).toHaveProperty(
+          'message',
+          'the number should be an integer'
+        )
+      })
+  })
+
   const getDictionary = (): Dictionary => ({
     0: 'zero',
     1: 'um',
