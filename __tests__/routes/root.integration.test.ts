@@ -13,6 +13,10 @@ describe('GET /', () => {
       })
   })
 
+  it('should deny favicon.ico request', async () => {
+    return request(app).get('/favicon.ico').expect(204)
+  })
+
   interface Dictionary {
     [number: string]: string
   }
