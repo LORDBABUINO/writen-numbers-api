@@ -15,9 +15,11 @@ class WriterService {
     number: number,
     closestNumber: number
   ): string {
-    return `${this.translate(closestNumber)} e ${this.translate(
-      number % closestNumber
-    )}`
+    return `${
+      closestNumber === 1000 && number % 100
+        ? 'mil'
+        : `${this.translate(closestNumber)} e`
+    } ${this.translate(number % closestNumber)}`
   }
 
   private findClosest(number: number, list: number[]): number {
