@@ -49,6 +49,7 @@ const testCaseList: TestCaseList = {
   '-999': 'menos novecentos e noventa e nove',
   1233: 'mil duzentos e trinta e três',
   1500: 'mil e quinhentos',
+  111: 'cento e onze',
 }
 
 export default testCaseList

@@ -18,7 +18,7 @@ class WriterService {
     return `${
       closestNumber === 1000 && number % 100
         ? 'mil'
-        : `${this.translate(closestNumber)} e`
+        : `${closestNumber === 100 ? 'cento' : this.translate(closestNumber)} e`
     } ${this.translate(number % closestNumber)}`
   }
 
