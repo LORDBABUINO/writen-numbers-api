@@ -18,6 +18,16 @@ describe('GET /', () => {
     return request(app).get('/favicon.ico').expect(204)
   })
 
+  it('should throw error on string requests', async () => {
+    return request(app)
+      .get('/test')
+      .expect('Content-Type', /json/)
+      .expect(400)
+      .then((res: Response) => {
+        expect(res.body).toHaveProperty('message', "it's not a number")
+      })
+  })
+
   const getDictionary = (): Dictionary => ({
     0: 'zero',
     1: 'um',
