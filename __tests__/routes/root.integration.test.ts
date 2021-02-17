@@ -1,5 +1,6 @@
 import request, { Response } from 'supertest'
 
+import { Dictionary } from '../../src/app/Dictionary'
 import app from '../../src/start/app'
 
 describe('GET /', () => {
@@ -16,10 +17,6 @@ describe('GET /', () => {
   it('should deny favicon.ico request', async () => {
     return request(app).get('/favicon.ico').expect(204)
   })
-
-  interface Dictionary {
-    [number: string]: string
-  }
 
   const getDictionary = (): Dictionary => ({
     0: 'zero',
