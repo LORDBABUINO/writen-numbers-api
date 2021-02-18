@@ -17,9 +17,9 @@ class WriterService {
   ): string {
     return `${
       number >= 2000 ? `${this.translate(Math.floor(number / 1000))} ` : ''
-    }${
-      closestNumber === 100 ? 'cento' : this.translate(closestNumber)
-    } e ${this.translate(number % closestNumber)}`
+    }${closestNumber === 100 ? 'cento' : this.translate(closestNumber)}${
+      number % 1000 ? ` e ${this.translate(number % closestNumber)}` : ''
+    }`
   }
 
   private findClosest(number: number, list: number[]): number {
