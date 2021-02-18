@@ -1,31 +1,14 @@
 version: "3.8"
 services:
-  postgres:
-    build:
-      context: .
-      dockerfile: Dockerfile.postgres
-    container_name: postgres_clinica
-    ports:
-      - ${DB_PORT}:5432
-    volumes:
-      - ./db:/var/lib/postgresql/data
-    env_file:
-      .env
-    environment:
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_DB=${DB_NAME}
-      - POSTGRES_PASSWORD=${DB_PASS}
   node:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    container_name: node_clinica
+    container_name: node_numbers
     working_dir: /home/node/app
     command: yarn dev
     volumes:
       - ./:/home/node/app
-    depends_on:
-      - postgres
     ports:
       - ${APP_PORT}:3000
     env_file:

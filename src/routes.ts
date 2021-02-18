@@ -1,12 +1,10 @@
 import { Router } from 'express'
 
-import UserController from './app/controllers/UserController'
+import WriterController from './app/controllers/WriterController'
 
 const router = Router()
 
-router.get('/', (req, res) => {
-  res.json({ message: 'Hello world!' })
-})
-router.post('/users', UserController.store)
+router.get('/favicon.ico', (_, res) => res.status(204).end())
+router.get('/:number', WriterController.index)
 
 export default router

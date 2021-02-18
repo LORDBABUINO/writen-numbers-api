@@ -1,9 +1,6 @@
-import 'reflect-metadata'
-import '../database'
-
 import app from './app'
 
-const port = parseInt(process.env.APP_PORT as string, 10) || 5432
+const port = parseInt(process.env.APP_PORT as string, 10) || 3000
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
