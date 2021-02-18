@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    container_name: node_clinica
+    container_name: node_numbers
     working_dir: /home/node/app
     command: yarn dev
     volumes:
